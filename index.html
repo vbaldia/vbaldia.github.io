@@ -3,8 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vidhaan Baldia</title>
-<meta name="description" content="Vidhaan Baldia, Computer Engineering at Purdue. Embedded systems, autonomous software, and hardware-software integration.">
+<title>Vidhaan Baldia · Computer Engineering at Purdue</title>
+<meta name="description" content="Vidhaan Baldia, Computer Engineering at Purdue (Class of 2029). Embedded hardware, autonomous trading systems, and AI tools. Open to Summer 2027 internships.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%230a0a0a%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2742%27%20text-anchor%3D%27middle%27%20font-family%3D%27Helvetica%2CArial%2Csans-serif%27%20font-weight%3D%27700%27%20font-size%3D%2728%27%20fill%3D%27%23e3b65c%27%3EVB%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vbaldia.github.io/">
+<meta property="og:title" content="Vidhaan Baldia · Computer Engineering at Purdue">
+<meta property="og:description" content="Embedded hardware, autonomous trading systems, and AI tools. Class of 2029, open to Summer 2027 internships.">
+<meta property="og:image" content="https://vbaldia.github.io/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vbaldia.github.io/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -163,7 +172,7 @@
   .w-did li { counter-increment: d; display: grid; grid-template-columns: 28px 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink); }
   .w-did li::before { content: counter(d, decimal-leading-zero); font-family: var(--mono); font-size: 11px; color: var(--dim); padding-top: 3px; }
   .w-foot { margin-top: auto; display: flex; flex-direction: column; gap: 16px; }
-  .w-stats { display: flex; gap: 30px; }
+  .w-stats { display: flex; gap: 14px 28px; flex-wrap: wrap; }
   .w-stats b { display: block; color: var(--ink); font-size: clamp(28px, 2.8vw, 42px); font-weight: 600; letter-spacing: -.045em; line-height: 1; }
   .w-stats b em { font-style: normal; color: var(--gold); }
   .w-stats span { font-size: 12.5px; color: var(--dim); }
@@ -215,6 +224,10 @@
   .f-bottom a { color: var(--ink); }
 
   /* magnetic button */
+  .hero-cta { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero-cta .mag { padding: 13px 22px; }
+  .ghost { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); font-weight: 500; font-size: 15px; transition: border-color .3s, transform .35s var(--ease); }
+  .ghost:hover { border-color: var(--gold); transform: translateY(-2px); }
   .mag { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: #111; font-weight: 500; font-size: 15px; transition: transform .35s var(--ease); }
 
   /* reveal */
@@ -242,6 +255,19 @@
   .lb-dots i.on { width: 24px; background: #fff; }
   .lb-x { position: fixed; top: 22px; right: var(--pad); color: #fff; background: none; border: 0; font: 500 14px var(--sans); cursor: pointer; }
 
+  /* innovative touches */
+  .scrollbar { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; pointer-events: none; }
+  .scrollbar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, rgba(227,182,92,.2), var(--gold)); transform-origin: left; transform: scaleX(0); }
+  .marquee-track.js { animation: none; will-change: transform; }
+  .big .ch { font-style: normal; display: inline-block; transition: transform .45s var(--ease), color .35s, -webkit-text-stroke-color .35s; will-change: transform; }
+  .big .line:nth-child(2) .ch.hot { color: var(--gold); -webkit-text-stroke-color: var(--gold); }
+  .me { perspective: 900px; }
+  .me img.tilting { transition: transform .25s ease-out, filter .8s var(--ease), clip-path 1.4s .35s var(--ease); }
+  .tile.tilt, .w-card.tilt { transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .18s ease-out, border-color .4s; }
+  .scr { font-variant-ligatures: none; }
+  .to-top { color: var(--mid) !important; }
+  @media (prefers-reduced-motion: reduce) { .big .ch { transition: none; } }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .rv, .big .line span { opacity: 1 !important; transform: none !important; }
@@ -251,6 +277,7 @@
 <body>
 
 <div class="cursor" id="cursor"><b>View</b></div>
+<div class="scrollbar" aria-hidden="true"><i></i></div>
 
 <nav class="px">
   <a href="#" class="logo">Vidhaan Baldia</a>
@@ -263,8 +290,15 @@
   <span class="status"><i></i>Open to Summer 2027 internships</span>
   <h1 class="big"><span class="line"><span>Vidhaan</span></span><span class="line"><span>Baldia</span></span></h1>
   <div class="hero-foot">
-    <p>Computer engineer at Purdue building embedded hardware, autonomous software, and the layer where they meet.</p>
-    <div class="mid mono">Based in Ashburn, VA<br>Studying at Purdue University</div>
+    <div>
+      <p>Computer Engineering student at Purdue, Class of 2029. I build embedded hardware, autonomous software, and the layer where they meet.</p>
+      <div class="hero-cta">
+        <a href="resume.pdf" class="mag" data-mag data-cursor="PDF">Résumé ↓</a>
+        <a href="https://github.com/vbaldia" class="ghost" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/vidhaan-baldia/" class="ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="mid mono">Based in Ashburn, VA<br>Purdue CompE · Class of 2029</div>
     <a href="#about" class="scroll mono">Scroll <b></b></a>
   </div>
 </header>
@@ -281,14 +315,14 @@
   <div class="bento">
     <div class="tile t1 rv">
       <span class="mono">Profile</span>
-      <h3>Computer Engineering at Purdue with minors in Finance and Math. I build systems that run outside a notebook, on real hardware, with real users and real money.</h3>
+      <h3>Computer Engineering at Purdue, Class of 2029, with minors in Finance and Math. I build systems that run outside a notebook, on real hardware, with real users and real money.</h3>
     </div>
-    <div class="tile t2 rv"><span class="mono">Projects built</span><div class="num" data-count="10">0<em>+</em></div></div>
-    <div class="tile t3 rv"><span class="mono">Live win rate</span><div class="num" data-count="64">0<em>%</em></div></div>
+    <div class="tile t2 rv"><span class="mono">Projects built</span><div class="num" data-count="10">10<em>+</em></div></div>
+    <div class="tile t3 rv"><span class="mono">Live win rate</span><div class="num" data-count="64">64<em>%</em></div></div>
     <div class="tile t4 rv"><span class="mono">Recent experience</span><h3>Software developer on Purdue's braille device team, with the Indiana School for the Blind and Visually Impaired</h3></div>
-    <div class="tile t5 rv"><span class="mono">Live trades</span><div class="num" data-count="100">0<em>+</em></div></div>
-    <div class="tile t6 rv"><span class="mono">Languages</span><h3>Python, C/C++, Java, Verilog</h3></div>
-    <div class="tile t7 rv"><span class="mono">Athletes coached</span><div class="num" data-count="30">0<em>+</em></div></div>
+    <div class="tile t5 rv"><span class="mono">Live trades</span><div class="num" data-count="100">100<em>+</em></div></div>
+    <div class="tile t6 rv"><span class="mono">Languages</span><h3>Python, C/C++, Java, JavaScript, SQL, Verilog</h3></div>
+    <div class="tile t7 rv"><span class="mono">Athletes coached</span><div class="num" data-count="30">30<em>+</em></div></div>
   </div>
 </section>
 
@@ -351,7 +385,7 @@
             <li>Safeguards for duplicate trades, stuck orders, and data outages</li>
           </ol>
           <div class="w-foot">
-            <div class="w-stats"><div><b>100<em>+</em></b><span>live trades</span></div><div><b>64<em>%</em></b><span>win rate</span></div></div>
+            <div class="w-stats"><div><b>100<em>+</em></b><span>live trades</span></div><div><b>64<em>%</em></b><span>win rate</span></div><div><b><em>$</em>500</b><span>returned in 4 weeks</span></div></div>
             <div class="w-tags"><span>Python</span><span>Claude API</span><span>Alpaca</span><span>NewsAPI</span></div>
           </div>
         </div>
@@ -414,9 +448,9 @@
 <section id="experience" class="px">
   <div class="sh rv"><h2>Experience</h2><p>Where I've worked, taught, and led.</p></div>
   <div class="list">
-    <div class="row rv"><span class="mono">01</span><b>Undergraduate Software Developer</b><span class="mono hide">Purdue · ISBVI</span><span class="arrow hide">→</span></div>
-    <div class="row rv"><span class="mono">02</span><b>Math Instructor</b><span class="mono hide">Mathnasium · Leesburg</span><span class="arrow hide">→</span></div>
-    <div class="row rv"><span class="mono">03</span><b>Founder &amp; Coach</b><span class="mono hide">Youth Basketball Camp</span><span class="arrow hide">→</span></div>
+    <div class="row rv"><span class="mono">01</span><b>Undergraduate Software Developer</b><span class="mono hide">Purdue ECE · Jan 2026 – Now</span><span class="arrow hide">→</span></div>
+    <div class="row rv"><span class="mono">02</span><b>Math Instructor</b><span class="mono hide">Mathnasium · 2024 – 2025</span><span class="arrow hide">→</span></div>
+    <div class="row rv"><span class="mono">03</span><b>Founder &amp; Coach</b><span class="mono hide">Basketball camp · 30+ athletes · $2,500</span><span class="arrow hide">→</span></div>
   </div>
 </section>
 
@@ -433,11 +467,11 @@
 <footer id="contact" class="px">
   <div class="mono cta-label rv">Have a role in mind?</div>
   <!-- TODO: confirm this is the email you want public -->
-  <a href="mailto:baldiavidhaan@gmail.com" class="cta rv"><span>Get in touch</span> <em>↗</em></a>
-  <div style="margin-top:40px" class="rv"><a href="resume.pdf" class="mag" data-mag>Download résumé ↓</a></div>
+  <a href="mailto:baldiavidhaan@gmail.com" class="cta rv" data-cursor="Email"><span>Get in touch</span> <em>↗</em></a>
+  <div style="margin-top:40px" class="rv"><a href="resume.pdf" class="mag" data-mag data-cursor="PDF">Download résumé ↓</a></div>
   <div class="f-bottom">
     <span>© 2026 Vidhaan Baldia</span>
-    <div class="soc"><a href="https://www.linkedin.com/in/vidhaan-baldia/">LinkedIn</a><a href="https://github.com/vbaldia">GitHub</a><a href="mailto:baldiavidhaan@gmail.com">Email</a></div>
+    <div class="soc"><a href="#" class="to-top">Back to top ↑</a><a href="https://www.linkedin.com/in/vidhaan-baldia/">LinkedIn</a><a href="https://github.com/vbaldia">GitHub</a><a href="mailto:baldiavidhaan@gmail.com">Email</a></div>
   </div>
 </footer>
 
@@ -612,6 +646,108 @@
     dx < -60 ? go(idx + 1) : dx > 60 ? go(idx - 1) : go(idx); sx = null;
   };
   lt.addEventListener('pointerup', end); lt.addEventListener('pointercancel', end);
+})();
+
+// innovative touches
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // 1. scroll progress line
+  const bar = document.querySelector('.scrollbar i');
+  const prog = () => { const max = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${max > 0 ? Math.min(scrollY / max, 1) : 0})`; };
+  addEventListener('scroll', prog, { passive: true }); addEventListener('resize', prog); prog();
+  if (reduce) return;
+
+  // 2. marquee that speeds up and reverses with scroll velocity
+  const mq = document.querySelector('.marquee'), mt = document.querySelector('.marquee-track');
+  if (mt) {
+    mt.classList.add('js');
+    let x = 0, dir = -1, vel = 0, lastY = scrollY, last = performance.now(), hover = false;
+    mq.addEventListener('pointerenter', () => hover = true); mq.addEventListener('pointerleave', () => hover = false);
+    addEventListener('scroll', () => { const dy = scrollY - lastY; lastY = scrollY; if (dy) dir = dy > 0 ? -1 : 1; vel = Math.min(vel + Math.abs(dy) * 0.9, 900); }, { passive: true });
+    const loop = now => {
+      const dt = Math.min((now - last) / 1000, 0.05); last = now;
+      vel *= Math.pow(0.04, dt);
+      const half = mt.scrollWidth / 2, speed = hover ? 0 : 55 + vel;
+      x += dir * speed * dt;
+      if (x <= -half) x += half; if (x > 0) x -= half;
+      mt.style.transform = `translate3d(${x}px,0,0)`;
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  }
+
+  // 3. hero name: letters rise toward the cursor; outlined letters fill gold
+  const lines = document.querySelectorAll('.big .line > span');
+  lines.forEach(s => { s.innerHTML = [...s.textContent].map(c => `<i class="ch">${c}</i>`).join(''); });
+  const chars = [...document.querySelectorAll('.big .ch')];
+  const hero = document.querySelector('.hero');
+  if (fine && hero && chars.length) {
+    let mx = -1e4, my = -1e4, raf = 0;
+    const apply = () => {
+      raf = 0;
+      chars.forEach(ch => {
+        const r = ch.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const d = Math.hypot(mx - cx, (my - cy) * 0.6), k = Math.max(0, 1 - d / 220);
+        ch.style.transform = k ? `translateY(${(-k * 14).toFixed(1)}px)` : '';
+        ch.classList.toggle('hot', k > 0.55);
+      });
+    };
+    hero.addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(apply); });
+    hero.addEventListener('pointerleave', () => { mx = my = -1e4; if (!raf) raf = requestAnimationFrame(apply); });
+  }
+
+  // 4. headshot tilts toward the cursor
+  const meImg = document.querySelector('.me img');
+  if (fine && hero && meImg) {
+    hero.addEventListener('pointermove', e => {
+      const r = meImg.getBoundingClientRect(), nx = (e.clientX - (r.left + r.width / 2)) / innerWidth, ny = (e.clientY - (r.top + r.height / 2)) / innerHeight;
+      meImg.classList.add('tilting');
+      meImg.style.transform = `rotateY(${(nx * 22).toFixed(2)}deg) rotateX(${(-ny * 18).toFixed(2)}deg)`;
+    });
+    hero.addEventListener('pointerleave', () => { meImg.style.transform = ''; });
+  }
+
+  // 5. 3D tilt on tiles and project cards
+  if (fine) document.querySelectorAll('.tile, .w-card').forEach(el => {
+    const max = el.classList.contains('w-card') ? 3 : 6;
+    el.addEventListener('pointermove', e => {
+      if (el.classList.contains('rv') && !el.classList.contains('in')) return;
+      const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+      el.classList.add('tilt');
+      el.style.setProperty('--ry', (px * max * 2).toFixed(2) + 'deg'); el.style.setProperty('--rx', (-py * max * 2).toFixed(2) + 'deg');
+    });
+    el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); setTimeout(() => el.classList.remove('tilt'), 200); });
+  });
+
+  // 6. labels decode from random glyphs when they scroll into view
+  const GLYPHS = '!<>-_\\/[]{}=+*^?#01';
+  const scramble = el => {
+    const final = el.textContent, len = final.length, t0 = performance.now(), dur = 650 + len * 18;
+    el.classList.add('scr');
+    const step = now => {
+      const p = Math.min((now - t0) / dur, 1), done = Math.floor(p * len);
+      let out = '';
+      for (let i = 0; i < len; i++) out += i < done || final[i] === ' ' ? final[i] : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+      el.textContent = out;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = final;
+    };
+    requestAnimationFrame(step);
+  };
+  const targets = [...document.querySelectorAll('.tile > .mono, .w-body .idx b, .w-body .idx span, .cta-label, .w-head .mono, .row .mono')].filter(el => !el.children.length && el.textContent.trim());
+  const sio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { sio.unobserve(e.target); scramble(e.target); } }), { threshold: 0.6 });
+  targets.forEach(el => sio.observe(el));
+
+  // 7. cursor label changes with what it is over
+  const cur = document.getElementById('cursor');
+  if (fine && cur && cur.isConnected) {
+    const label = cur.querySelector('b');
+    document.querySelectorAll('[data-cursor]').forEach(el => {
+      el.addEventListener('pointerenter', () => { label.textContent = el.dataset.cursor; cur.classList.add('big'); });
+      el.addEventListener('pointerleave', () => { cur.classList.remove('big'); setTimeout(() => { if (!cur.classList.contains('big')) label.textContent = 'View'; }, 300); });
+    });
+  }
 })();
 </script>
 </body>
